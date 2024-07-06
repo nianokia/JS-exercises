@@ -304,6 +304,8 @@ function exercise10(num10) {
 // Congrats, you made it to the end! You rock!
 // Did you find this easy or hard? If you used references, which ones helped you?
 // Please answer in a comment below.
-//
+// It wasn't very hard, I was able to recall a lot. I remembered all but one part of
+// the switch syntax (case 7: not case 1: 7) and needed to see the appropriate way to
+// use the typeof method.
 
 // Email your file to us or commit your file to GitHub and email us a link.
