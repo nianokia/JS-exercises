@@ -15,6 +15,9 @@
 // prependToString('awesome', 'very') // --> 'veryawesome'
 // prependToString('world', 'hello ') // --> 'hello world'
 // prependToString('nothing', '') // --> 'nothing'
+function prependToString(str1, str2) {
+    return str2.concat(str1);
+}
 
 // Exercise 2. Write a function called stringIncludes, which accepts two strings: the first string is a word and the second string is a single character.
 // The function should return true if the first string includes the character, otherwise it should return false.
@@ -22,6 +25,13 @@
 // Examples:
 // stringIncludes('awesome', 'e'); // --> true
 // stringIncludes('awesome', 'z'); // --> false
+function stringIncludes(str1, str2) {
+    if (str1[str1.length - 1] == str2) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 // Exercise 3. Write a function called stringLastIndexOf, which accepts two strings: the first is a word and the second is a single character.
 // The function should return the last index at which the character exists or -1 if the character is not found.
@@ -29,6 +39,13 @@
 // Examples:
 // stringLastIndexOf('awesome', 'e'); // --> 6
 // stringLastIndexOf('awesome', 'z'); // --> -1
+function stringLastIndexOf(str1, str2) {
+    if (str1[str1.length - 1] == str2) {
+        return str2;
+    } else {
+        return -1;
+    }
+}
 
 // Exercise 4. Write a function called removeFromString, which accepts a string, a starting index (number) and a number of characters to remove.
 // The function should return a new string with the characters removed.
@@ -38,6 +55,11 @@
 // removeFromString('Hello School', 0, 6) // --> 'School'
 // removeFromString('Hello School', 2, 4) // --> 'HeSchool'
 // removeFromString('Hello School', 6, 400) // --> 'Hello '
+function removeFromString(str, index, char) {
+  let startStr = str.slice(0, index);
+  let endingStr = str.slice(index + char);
+  return startStr + endingStr; 
+}
 
 // Exercise 5. Write a function called indexOf, which accepts an array and a number.
 // The function should return the first index at which the value exists or -1 if the value is not found.
@@ -49,9 +71,22 @@
 // indexOf(arr2, 2); // --> 1
 // let arr3 = [1, 2];
 // indexOf(arr3, 10); // --> -1
+function indexOf(arr, num) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == num) {
+            return i;
+        }
+    }
+    return "-1";
+}
 
-// Exercise 6. Write a function called includes which accepts a collection, a value, and an optional starting index. The function should return true if the value exists in the collection when we search starting from the starting index. Otherwise, it should return false.
-// The collection can be a string, an array, or an object. If the collection is a string or array, the third parameter is a starting index for where to search from. If the collection is an object, the function searches for the value among values in the object; since objects have no sort order, the third parameter is ignored.
+// Exercise 6. Write a function called includes which accepts a collection, a value, and an optional 
+// starting index. The function should return true if the value exists in the collection when we search 
+// starting from the starting index. Otherwise, it should return false.
+// The collection can be a string, an array, or an object. If the collection is a string or array, the 
+// third parameter is a starting index for where to search from. If the collection is an object, the
+// function searches for the value among values in the object; since objects have no sort order, the 
+// third parameter is ignored.
 // Examples:
 // includes([1, 2, 3], 1) // --> true
 // includes([1, 2, 3], 1, 2) // --> false
@@ -61,3 +96,30 @@
 // includes('abcd', 'b') // --> true
 // includes('abcd', 'e') // --> false
 // includes('abcd', 'a', 2) // --> false
+
+function includes(collection, val, index) {
+  if (Array.isArray(collection) || typeof collection === "string") {
+    if (index === undefined) {
+        for (let i = 0; i < collection.length; i++) {
+            if (collection[i] == val) {
+                return true;
+            }
+        } 
+    }
+  } else if (Array.isArray(collection) || typeof collection === "string") {
+    if (collection[index] == val) {
+      return true;
+    } 
+  } else if (typeof collection === "object") {
+    for (let key in collection) {
+      if (collection.hasOwnProperty(key) && collection[key] == val) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+/* This set of exercises took me awhile to finish. I wasn't able to to complete
+exercise 4 & 6 without using resources. While it was challenging I was introduced
+to new ways to view and solve the problem. */
