@@ -18,7 +18,7 @@ export default function App() {
       <h1>Thank you for Submitting your refound</h1>
 
       {isSubmit ? (
-        <Message data={data} />
+        <Message name={data.name} email={data.email} orderNum={data.orderNum} reasonForReturn={data.reasonForReturn} />
       ) : (
         <RegisterYourApplicationForm onSubmit={submitData} />
       )}

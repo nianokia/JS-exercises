@@ -1,9 +1,10 @@
 const Message = (props) => {
   return (
     <div>
-      <h3>Thank you for submitting our form </h3>
-      <p> {props.data.name} </p>
-      <p> You register the email {props.data.email}</p>
+      <h3>{props.name}, thank you for submitting our form</h3>
+      <p> You registered under the email {props.email}</p>
+      <p>Order Number: {props.orderNum}</p>
+      <p>Reason for Return: {props.reasonForReturn}</p>
     </div>
   );
 };
